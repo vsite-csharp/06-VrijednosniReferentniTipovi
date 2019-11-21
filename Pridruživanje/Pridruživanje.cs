@@ -76,6 +76,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
             vt1.Rt = new RefTip();
             vt1.Rt.X = prvaVrijednost;
+
             Console.WriteLine(vt1.Rt.X);
             Console.WriteLine(vt2.Rt.X);
 
