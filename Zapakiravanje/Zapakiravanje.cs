@@ -27,8 +27,11 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 lista.Add(rt);
             }
 
-            // TODO:010 Dodati petlju koja će za svaki član liste ispisati vrijednost njegovog člana X
-
+            for (int i = 0; i < 10; ++i)
+            {
+                RefTip r=(RefTip)lista[i];
+                Console.WriteLine(r.X);
+            }
         }
 
         public static void DodavanjeStruktureUArrayList()
@@ -43,7 +46,11 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             }
 
             // TODO:011 Dodati petlju koja će za svaki član liste ispisati vrijednost njegovog člana X
-
+            for (int i = 0; i < 10; ++i)
+            {
+               VrijednTip rt2=(VrijednTip)lista[i];
+                Console.WriteLine(rt2.X);
+            }
         }
 
 
