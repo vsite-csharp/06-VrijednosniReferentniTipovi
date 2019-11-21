@@ -61,23 +61,19 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             vt1.Rt = new RefTip();
             vt1.Rt.X = prvaVrijednost;
 
-            // TODO:006 Deklarirati novi objekt "vt2" tipa VrijednTip i pridružiti mu objekt "vt1"
             VrijednTip vt2 = vt1;
 
-            // TODO:007 Dodati naredbe koje će ispisati vrijednosti članova vt1.Rt.X, odnosno vt2.Rt.X
             Console.WriteLine(vt1.Rt.X);
             Console.WriteLine(vt2.Rt.X);
 
             Console.WriteLine($"Pridružujemo vt1.Rt.X={drugaVrijednost}:");
             vt1.Rt.X = drugaVrijednost;
 
-            // TODO:008 Dodati dvije naredbe koje će ponovno ispisati vrijednosti članova vt1.Rt.X, odnosno vt2.Rt.X. Pokrenuti program i provjeriti ispis
             Console.WriteLine(vt1.Rt.X);
             Console.WriteLine(vt2.Rt.X);
 
             Console.WriteLine($"Članu vt1.Rt pridružujemo novi objekt i zadajemo da je vt1.Rt.X={prvaVrijednost}:");
 
-            // TODO:009 Otkomentirati donje naredbe, ponoviti naredbe za ispis vrijednosti članova vt1.Rt.X, odnosno vt2.Rt.X. Pokrenuti program i provjeriti ispis
             vt1.Rt = new RefTip();
             vt1.Rt.X = prvaVrijednost;
 
