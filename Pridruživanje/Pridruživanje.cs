@@ -31,7 +31,8 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             Console.WriteLine($"Pridružujemo vt1.X={drugaVrijednost}:");
             vt1.X = drugaVrijednost;
 
-
+            Console.WriteLine(vt1.X);
+            Console.WriteLine(vt2.X);
         }
 
         public static void PridruživanjeKlasa(int prvaVrijednost, int drugaVrijednost)
@@ -47,7 +48,8 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             Console.WriteLine($"Pridružujemo rt1.X={drugaVrijednost}:");
             rt1.X = drugaVrijednost;
 
-
+            Console.WriteLine(rt1.X);
+            Console.WriteLine(rt2.X);
         }
 
         public static void PridruživanjeNovogObjektaČlanuPreslikaneStukture(int prvaVrijednost, int drugaVrijednost)
