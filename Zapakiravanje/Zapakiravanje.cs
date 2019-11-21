@@ -17,7 +17,6 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
     {
         public static void DodavanjeKlaseUArrayList()
         {
-            // ArrayList rukuje s kolekcijom članova tipa object (ne zna ništa o konkretnom tipu)
             ArrayList lista = new ArrayList();
             RefTip rt = new RefTip();
 
@@ -27,7 +26,10 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 lista.Add(rt);
             }
 
-            // TODO:010 Dodati petlju koja će za svaki član liste ispisati vrijednost njegovog člana X
+            foreach (RefTip item in lista)
+            {
+                Console.WriteLine(item.X);
+            }
 
         }
 
@@ -43,7 +45,10 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             }
 
             // TODO:011 Dodati petlju koja će za svaki član liste ispisati vrijednost njegovog člana X
-
+            foreach (VrijednTip item in lista)
+            {
+                Console.WriteLine(item.X);
+            }
         }
 
 
