@@ -35,7 +35,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 foreach (short s in lista)
                 {
                     // TODO:020 Dodati naredbu za ispis člana s. Postaviti prekidnu točku (breakpoint) na početak metode, pokrenuti program i provjeriti izvođenje
-
+                    Console.WriteLine(s.ToString());
                 }
             }
             catch (Exception e)
