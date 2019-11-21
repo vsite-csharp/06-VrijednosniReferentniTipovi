@@ -28,10 +28,9 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
         public static void Ispis(List<VrijednTip> lista)
         {
-            for (int i = 0; i < lista.Count; i++) {
-                Console.WriteLine(((VrijednTip)lista[i]).X);
-            }
+            // TODO:030 Dodati petlju koja će ispisati član X za svaki element kolekcije lista.
 
+            // TODO:031 Prevesti kod i usporediti dobiveni IL kod s kodom iz projekta Otpakiravanje.
 
         }
     }
