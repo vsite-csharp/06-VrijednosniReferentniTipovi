@@ -22,10 +22,10 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             VrijednTip vt1 = new VrijednTip();
             vt1.X = prvaVrijednost;
 
-            // TODO:000 Deklarirati novi objekt "vt2" tipa VrijednTip i pridružiti mu vrijednost objekta "vt1"
+            VrijednTip vt2 = vt1;
 
-
-            // TODO:001 Dodati dvije naredbe koje će ispisati vrijednosti članova vt1.X, odnosno vt2.X
+            Console.WriteLine(vt1.X);
+            Console.WriteLine(vt2.X);
 
 
             Console.WriteLine($"Pridružujemo vt1.X={drugaVrijednost}:");
@@ -42,9 +42,11 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
             // TODO:003 Deklarirati novi objekt "rt2" RefTip i pridružiti mu objekt "rt1"
 
-
+            RefTip rt2 = rt1;
             // TODO:004 Dodati dvije naredbe koje će ispisati vrijednosti članova rt1.X, odnosno rt2.X
 
+            Console.WriteLine(rt1.X);
+            Console.WriteLine(rt2.X);
 
             Console.WriteLine($"Pridružujemo rt1.X={drugaVrijednost}:");
             rt1.X = drugaVrijednost;
@@ -60,10 +62,10 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             vt1.Rt = new RefTip();
             vt1.Rt.X = prvaVrijednost;
 
-            // TODO:006 Deklarirati novi objekt "vt2" tipa VrijednTip i pridružiti mu objekt "vt1"
+            VrijednTip vt2 = vt1;
 
-
-            // TODO:007 Dodati naredbe koje će ispisati vrijednosti članova vt1.Rt.X, odnosno vt2.Rt.X
+            Console.WriteLine(vt1.Rt.X);
+            Console.WriteLine(vt2.Rt.X);
 
 
             Console.WriteLine($"Pridružujemo vt1.Rt.X={drugaVrijednost}:");
@@ -71,12 +73,16 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
             // TODO:008 Dodati dvije naredbe koje će ponovno ispisati vrijednosti članova vt1.Rt.X, odnosno vt2.Rt.X. Pokrenuti program i provjeriti ispis
 
+            Console.WriteLine(vt1.Rt.X);
+            Console.WriteLine(vt2.Rt.X);
 
             Console.WriteLine($"Članu vt1.Rt pridružujemo novi objekt i zadajemo da je vt1.Rt.X={prvaVrijednost}:");
 
-            // TODO:009 Otkomentirati donje naredbe, ponoviti naredbe za ispis vrijednosti članova vt1.Rt.X, odnosno vt2.Rt.X. Pokrenuti program i provjeriti ispis
-            //vt1.Rt = new RefTip();
-            //vt1.Rt.X = prvaVrijednost;
+            // TDO:009 Otkomentirati donje naredbe, ponoviti naredbe za ispis vrijednosti članova vt1.Rt.X, odnosno vt2.Rt.X. Pokrenuti program i provjeriti ispis
+            vt1.Rt = new RefTip();
+            vt1.Rt.X = prvaVrijednost;
+            Console.WriteLine(vt1.Rt.X);
+            Console.WriteLine(vt2.Rt.X);
 
 
         }
