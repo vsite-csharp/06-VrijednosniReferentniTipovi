@@ -68,8 +68,9 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 Console.WriteLine("Pokušavamo članove pretvoriti prvo int pa u u short");
                 foreach (object o in lista)
                 {
-                    Console.WriteLine((int)o);
-                    Console.WriteLine((short)o);
+                    int obj;
+                    obj = (int)o;
+                    Console.WriteLine((short)obj);
                 }
             }
             catch (Exception e)
