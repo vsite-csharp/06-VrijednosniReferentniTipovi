@@ -35,7 +35,16 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 foreach (short s in lista)
                 {
                     // TODO:020 Dodati naredbu za ispis člana s. Postaviti prekidnu točku (breakpoint) na početak metode, pokrenuti program i provjeriti izvođenje
+                    Console.WriteLine(s);
 
+                    /*ISPIS:  Pokusavamo clanove u foreach tretirati kao short
+                                Specified cast is not valid.
+
+                                Pokusavamo clanove tipa object pretvoriti u short
+
+                                Pokusavamo clanove pretvoriti prvo int pa u u short
+
+                                GOTOVO!!!*/
                 }
             }
             catch (Exception e)
@@ -53,6 +62,8 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 {
                     // TODO:021 Napraviti eksplicitnu pretvorbu člana o u tip short te dodati naredbu za ispis. 
                     // Postaviti prekidnu točku (breakpoint) na početak metode, pokrenuti program i provjeriti izvođenje
+                   
+                    Console.WriteLine((short)o);
 
                 }
             }
@@ -70,7 +81,9 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 foreach (object o in lista)
                 {
                     // TODO:022 Napratiti eksplicitnu pretvorbu člana o u int, a potom u tip short te dodati naredbu za ispis. Pokrenuti program i provjeriti ispis.
-
+                    int obj;
+                    obj = (int)o;
+                    Console.WriteLine((short)obj);
                 }
             }
             catch (Exception e)
