@@ -12,7 +12,8 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 Console.WriteLine("Pokušavamo članove u foreach tretirati kao short");
                 foreach (short s in lista)
                 {
-                    // TODO:030 Dodati naredbu za ispis člana s. Postaviti prekidnu točku (breakpoint) na početak metode, pokrenuti program i provjeriti izvođenje.
+                    //  Dodati naredbu za ispis člana s. Postaviti prekidnu točku (breakpoint) na početak metode, pokrenuti program i provjeriti izvođenje.
+                    Console.WriteLine(s);
 
                 }
             }
@@ -29,9 +30,10 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 Console.WriteLine("Pokušavamo članove tipa object pretvoriti u short");
                 foreach (object o in lista)
                 {
-                    // TODO:031 Napraviti eksplicitnu pretvorbu člana o u tip short te dodati naredbu za ispis. 
+                    //  Napraviti eksplicitnu pretvorbu člana o u tip short te dodati naredbu za ispis. 
                     // Postaviti prekidnu točku (breakpoint) na početak metode, pokrenuti program i provjeriti izvođenje
-
+                    //o = (short)o;
+                    Console.WriteLine((short)o);
                 }
             }
             catch (Exception e)
@@ -47,8 +49,8 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 Console.WriteLine("Pokušavamo članove pretvoriti prvo int pa u u short");
                 foreach (object o in lista)
                 {
-                    // TODO:032 Napratiti eksplicitnu pretvorbu člana o u int, a potom u tip short te dodati naredbu za ispis. Pokrenuti program i provjeriti ispis.
-
+                    //  Napratiti eksplicitnu pretvorbu člana o u int, a potom u tip short te dodati naredbu za ispis. Pokrenuti program i provjeriti ispis.
+                    Console.WriteLine((short)(int)o);
                 }
             }
             catch (Exception e)
@@ -56,7 +58,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 Console.WriteLine(e.Message);
             }
         }
-        // TODO:033 Pokrenuti testove i provjeriti prolaze li oba testa u grupi TestOtpakiravanja.
+        //  Pokrenuti testove i provjeriti prolaze li oba testa u grupi TestOtpakiravanja.
 
         static void Main(string[] args)
         {
