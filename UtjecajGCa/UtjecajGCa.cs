@@ -27,7 +27,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
     {
         static void Main(string[] args)
         {
-            // TODO:010 Pogledati što kod radi, pokrenuti program i analizirati ispisana vremena.
+            //:010 Pogledati što kod radi, pokrenuti program i analizirati ispisana vremena.
             const int brojElemenata = 1000000;
 
             // stvaramo objekte i pokrećemo metode da bi JIT preveo u strojni kod prije korištenja
@@ -129,7 +129,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             GC.WaitForPendingFinalizers();
 
             sw.Stop();
-            Console.WriteLine($"GC:                 {sw.ElapsedTicks}");
+            Console.WriteLine($"GC:                  {sw.ElapsedTicks}");
 
             Console.WriteLine("GOTOVO!!!");
             Console.ReadKey();
