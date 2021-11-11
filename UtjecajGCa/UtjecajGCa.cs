@@ -63,7 +63,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             for (int i = 0; i < brojElemenata; ++i)
             {
                 MojaKlasa mk = new MojaKlasa(i);
-            }
+            } 
 
             GC.Collect();
             GC.WaitForPendingFinalizers();
