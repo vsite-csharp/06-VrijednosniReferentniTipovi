@@ -28,7 +28,10 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             }
 
             // TODO:020 Dodati petlju koja će za svaki član liste ispisati vrijednost njegovog člana X
-
+            foreach (var item in lista)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         public static void DodavanjeStruktureUArrayList()
@@ -43,7 +46,10 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             }
 
             // TODO:021 Dodati petlju koja će za svaki član liste ispisati vrijednost njegovog člana X
-
+            foreach (var item in lista)
+            {
+                Console.WriteLine(item);
+            }
         }
         // TODO:022 Pokrenuti testove i provjeriti prolaze li oba testa u grupi TestZapakiravanja
 
