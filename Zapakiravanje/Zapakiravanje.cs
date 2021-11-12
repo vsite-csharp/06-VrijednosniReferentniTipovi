@@ -27,7 +27,11 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 lista.Add(rt);
             }
 
-            // TODO:020 Dodati petlju koja će za svaki član liste ispisati vrijednost njegovog člana X
+            // Dodati petlju koja će za svaki član liste ispisati vrijednost njegovog člana X
+            foreach(RefTip el in lista)
+            {
+                Console.WriteLine(el.X);
+            }
 
         }
 
@@ -42,7 +46,11 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 lista.Add(vt);
             }
 
-            // TODO:021 Dodati petlju koja će za svaki član liste ispisati vrijednost njegovog člana X
+            // Dodati petlju koja će za svaki član liste ispisati vrijednost njegovog člana X
+            foreach (VrijednTip el in lista)
+            {
+                Console.WriteLine(el.X);
+            }
 
         }
         // TODO:022 Pokrenuti testove i provjeriti prolaze li oba testa u grupi TestZapakiravanja
