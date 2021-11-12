@@ -53,7 +53,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             }
 
         }
-        // TODO:022 Pokrenuti testove i provjeriti prolaze li oba testa u grupi TestZapakiravanja
+        // Pokrenuti testove i provjeriti prolaze li oba testa u grupi TestZapakiravanja
 
         static void Main(string[] args)
         {
