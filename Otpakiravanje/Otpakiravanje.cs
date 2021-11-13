@@ -48,7 +48,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 Console.WriteLine("Pokušavamo članove pretvoriti prvo int pa u u short");
                 foreach (object o in lista)
                 {
-                    // TODO:032 Napratiti eksplicitnu pretvorbu člana o u int, a potom u tip short te dodati naredbu za ispis. Pokrenuti program i provjeriti ispis.
+                    // 032 Napratiti eksplicitnu pretvorbu člana o u int, a potom u tip short te dodati naredbu za ispis. Pokrenuti program i provjeriti ispis.
                     int i = (int)o;
                     Console.WriteLine((short)i);
                 }
@@ -58,7 +58,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 Console.WriteLine(e.Message);
             }
         }
-        // TODO:033 Pokrenuti testove i provjeriti prolaze li oba testa u grupi TestOtpakiravanja.
+        // 033 Pokrenuti testove i provjeriti prolaze li oba testa u grupi TestOtpakiravanja.
 
         static void Main(string[] args)
         {
