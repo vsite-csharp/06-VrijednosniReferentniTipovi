@@ -58,7 +58,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 Console.WriteLine(e.Message);
             }
         }
-        // TODO:033 Pokrenuti testove i provjeriti prolaze li oba testa u grupi TestOtpakiravanja.
+        // 033 Pokrenuti testove i provjeriti prolaze li oba testa u grupi TestOtpakiravanja.
 
         static void Main(string[] args)
         {
