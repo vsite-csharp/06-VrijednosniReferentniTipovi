@@ -26,14 +26,17 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             VrijednTip vt2 = vt1;
 
             // :001 Dodati naredbe koje će ispisati vrijednosti članova vt1.X, odnosno vt2.X
-            Console.WriteLine($"vt1.X = {vt1.X}");
-            Console.WriteLine($"vt2.X = {vt2.X}");
+            //Console.WriteLine($"vt1.X = {vt1.X}");
+            //Console.WriteLine($"vt2.X = {vt2.X}");
+            Console.WriteLine(vt1.X);
+            Console.WriteLine(vt2.X);
 
             Console.WriteLine($"Pridružujemo vt1.X={drugaVrijednost}:");
             vt1.X = drugaVrijednost;
 
             // :002 Ponoviti naredbe za ispis vrijednosti članova vt1.X, odnosno vt2.X. Pokrenuti program i provjeriti ispis
-
+            Console.WriteLine(vt1.X);
+            Console.WriteLine(vt2.X);
         }
 
         public static void PridruživanjeKlasa(int prvaVrijednost, int drugaVrijednost)
@@ -45,14 +48,17 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             RefTip rt2 = rt1;
 
             // :004 Dodati naredbe koje će ispisati vrijednosti članova rt1.X, odnosno rt2.X
-            Console.WriteLine($"vt1.Rt.X = {rt1.X}");
-            Console.WriteLine($"vt2.Rt.X = {rt2.X}");
+            //Console.WriteLine($"vt1.Rt.X = {rt1.X}");
+            //Console.WriteLine($"vt2.Rt.X = {rt2.X}");
+            Console.WriteLine(rt1.X);
+            Console.WriteLine(rt2.X);
 
             Console.WriteLine($"Pridružujemo rt1.X={drugaVrijednost}:");
             rt1.X = drugaVrijednost;
 
-            // TODO:005 Ponoviti naredbe za ispis vrijednosti članova rt1.X, odnosno rt2.X. Pokrenuti program i provjeriti ispis
-
+            // :005 Ponoviti naredbe za ispis vrijednosti članova rt1.X, odnosno rt2.X. Pokrenuti program i provjeriti ispis
+            Console.WriteLine(rt1.X);
+            Console.WriteLine(rt2.X);
         }
 
         public static void PridruživanjeNovogObjektaČlanuPreslikaneStukture(int prvaVrijednost, int drugaVrijednost)
@@ -66,15 +72,19 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             VrijednTip vt2 = vt1; // var vt2 = vt1;
 
             // :007 Dodati naredbe koje će ispisati vrijednosti članova vt1.Rt.X, odnosno vt2.Rt.X
-            Console.WriteLine("vt1.Rt.X = {vt1.Rt.X}");
-            Console.WriteLine("vt2.Rt.X = {vt2.Rt.X}");
+            //Console.WriteLine($"vt1.Rt.X = {vt1.Rt.X}");
+            //Console.WriteLine($"vt2.Rt.X = {vt2.Rt.X}");
+            Console.WriteLine(vt1.Rt.X);
+            Console.WriteLine(vt2.Rt.X);
 
             Console.WriteLine($"Pridružujemo vt1.Rt.X={drugaVrijednost}:");
             vt1.Rt.X = drugaVrijednost;
 
             // :008 Ponoviti naredbe za ispis vrijednosti članova vt1.Rt.X, odnosno vt2.Rt.X. Pokrenuti program i provjeriti ispis
-            Console.WriteLine("vt1.Rt.X = {vt1.Rt.X}");
-            Console.WriteLine("vt2.Rt.X = {vt2.Rt.X}");
+            //Console.WriteLine($"vt1.Rt.X = {vt1.Rt.X}");
+            //Console.WriteLine($"vt2.Rt.X = {vt2.Rt.X}");
+            Console.WriteLine(vt1.Rt.X);
+            Console.WriteLine(vt2.Rt.X);
 
             Console.WriteLine($"Članu vt1.Rt pridružujemo novi objekt i zadajemo da je vt1.Rt.X={prvaVrijednost}:");
 
@@ -82,9 +92,11 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             vt1.Rt = new RefTip();
             vt1.Rt.X = prvaVrijednost;
 
+            Console.WriteLine(vt1.Rt.X);
+            Console.WriteLine(vt2.Rt.X);
 
         }
-        // TODO:009a Pokrenuti testove i provjeriti prolaze li sva 3 testa u grupi TestPridruživanja.
+        // :009a Pokrenuti testove i provjeriti prolaze li sva 3 testa u grupi TestPridruživanja.
 
         static void Main(string[] args)
         {
