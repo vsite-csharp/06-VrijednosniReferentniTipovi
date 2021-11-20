@@ -28,11 +28,15 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
         public static void Ispis(List<VrijednTip> lista)
         {
-            // TODO:040 Dodati petlju koja će ispisati član X za svaki element kolekcije lista.
+            // :040 Dodati petlju koja će ispisati član X za svaki element kolekcije lista.
+            foreach (var vt in lista)
+            {
+                Console.WriteLine(vt.X);
+            }
 
-            // TODO:041 Prevesti kod i usporediti dobiveni IL kod s kodom iz projekta Otpakiravanje.
+            // :041 Prevesti kod i usporediti dobiveni IL kod s kodom iz projekta Otpakiravanje.
 
-            // TODO:042 Pokrenuti testove i provjeriti prolazi li test u grupi TestGeneričkeListe.
+            // :042 Pokrenuti testove i provjeriti prolazi li test u grupi TestGeneričkeListe.
         }
     }
 }
