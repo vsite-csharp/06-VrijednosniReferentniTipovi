@@ -92,7 +92,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
 
         }
-        // TODO:009a Pokrenuti testove i provjeriti prolaze li sva 3 testa u grupi TestPridruživanja.
+        // :009a Pokrenuti testove i provjeriti prolaze li sva 3 testa u grupi TestPridruživanja.
 
         static void Main(string[] args)
         {
