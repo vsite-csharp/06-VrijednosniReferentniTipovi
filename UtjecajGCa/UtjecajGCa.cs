@@ -25,114 +25,155 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
     class UtjecajGCa
     {
-        static void Main(string[] args)
+        const int brojElemenata = 1000000;
+
+        public static long[] InicijalizacijaDealokacijaStruktura(int brojPonavljanja)
         {
-            // TODO:030 Pogledati što kod radi, pokrenuti program i analizirati ispisana vremena.
-            const int brojElemenata = 1000000;
-
-            // stvaramo objekte i pokrećemo metode da bi JIT preveo u strojni kod prije korištenja
+            var tikovi = new long[brojPonavljanja];
             Stopwatch sw = new Stopwatch();
-            sw.Restart();
-            sw.Stop();
 
-            MojaStruktura s = new MojaStruktura(0);
-            MojaKlasa k = new MojaKlasa(0);
-
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-
-            // ********************************************************
-            // 1. instanciramo strukture
-            sw.Restart();
-
-            for (int i = 0; i < brojElemenata; ++i)
+            for (int n = 0; n < brojPonavljanja; ++n)
             {
-                MojaStruktura ms = new MojaStruktura(i);
+                // pokrećemo štopericu
+                sw.Restart();
+
+                // instanciramo mnoštvo objekata vrijednosnog tipa (strukture)
+                for (int i = 0; i < brojElemenata; ++i)
+                {
+                    MojaStruktura ms = new MojaStruktura(i);
+                }
+
+                // ručno pokrećemo GC
+                GC.Collect();
+
+                // GC oslobađa memoriju u zasebnim nitima (threadovima) pa trebamo čekati da svi završe
+                GC.WaitForPendingFinalizers();
+
+                // zaustavlajmo štopericu
+                sw.Stop();
+
+                // pohranimo izmjereno vrijeme
+                tikovi[n] = sw.ElapsedTicks;
             }
+            // vraćamo izmjerena vremena
+            return tikovi;
+        }
 
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+        public static long[] InicijalizacijaDealokacijaKlasa(int brojPonavljanja)
+        {
+            // TODO:030 Ponoviti kod prethodne metode ali za inicijalizaciju objekata tipa MojaKlasa
 
-            sw.Stop();
-            Console.WriteLine($"Strukuture:          {sw.ElapsedTicks}");
+            throw new NotImplementedException();
 
-            // ********************************************************
-            // 2. instanciramo klase
-            sw.Restart();
+        }
 
-            for (int i = 0; i < brojElemenata; ++i)
+        public static long[,] InicijalizacijaDealokacijaStrukturaOdvojeno(int brojPonavljanja)
+        {
+            var tikovi = new long[brojPonavljanja, 2];
+            Stopwatch sw = new Stopwatch();
+
+            for (int n = 0; n < brojPonavljanja; ++n)
             {
-                MojaKlasa mk = new MojaKlasa(i);
+                // pokrećemo štopericu
+                sw.Restart();
+
+                // instanciramo mnoštvo objekata vrijednosnog tipa (strukture)
+                for (int i = 0; i < brojElemenata; ++i)
+                {
+                    MojaStruktura ms = new MojaStruktura(i);
+                }
+
+                // zaustavlajmo štopericu
+                sw.Stop();
+
+                // dodajemo vrijeme izmjereno za inicijalizaciju
+                tikovi[n, 0] = sw.ElapsedTicks;
+
+                // pokrećemo štopericu za mjerenje GC-a
+                sw.Restart();
+
+                // ručno pokrećemo GC
+                GC.Collect();
+
+                // GC oslobađa memoriju u zasebnim nitima (threadovima) pa trebamo čekati da svi završe
+                GC.WaitForPendingFinalizers();
+
+                // zaustavlajmo štopericu
+                sw.Stop();
+
+                // pohranimo vrijeme izmjereno za dealokaciju
+                tikovi[n, 1] = sw.ElapsedTicks;
             }
+            // vraćamo izmjerena vremena
+            return tikovi;
+        }
 
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+        public static long[,] InicijalizacijaDealokacijaKlasaOdvojeno(int brojPonavljanja)
+        {
+            // TODO:031 Ponoviti kod gornje metode ali za inicijalizaciju objekata tipa MojaKlasa
 
-            sw.Stop();
-            Console.WriteLine($"Klase:               {sw.ElapsedTicks}");
+            // TODO:032 Provjeriti prolaze li svi testovi iz grupe TestUtjecajaGCa
+            throw new NotImplementedException();
+        }
 
-            // ********************************************************
-            // 3. ponovno instanciramo strukture
-            sw.Restart();
-
-            for (int i = 0; i < brojElemenata; ++i)
+        static void IspišiRezultate(long[] rezultati)
+        {
+            foreach (var rezultat in rezultati)
             {
-                MojaStruktura ms = new MojaStruktura(i);
+                Console.WriteLine(rezultat);
             }
+            Console.WriteLine($"MINIMUM: {rezultati.Min()}");
+        }
 
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-
-            sw.Stop();
-            Console.WriteLine($"Strukuture:          {sw.ElapsedTicks}");
-
-            // ********************************************************
-            // 4. ponovno instanciramo klase, ali sada ne računamo vrijeme za GC
-            sw.Restart();
-
-            for (int i = 0; i < brojElemenata; ++i)
+        static void IspišiRezultate(long[,] rezultati)
+        {
+            int brojParova = rezultati.GetLength(0);
+            long minInicijalizacija = long.MaxValue;
+            long minDealokacija = long.MaxValue;
+            for (int i = 0; i < brojParova; ++i)
             {
-                MojaKlasa mk = new MojaKlasa(i);
+                Console.WriteLine($"{rezultati[i, 0]}  {rezultati[i, 1]}");
+                if (rezultati[i, 0] < minInicijalizacija)
+                {
+                    minInicijalizacija = rezultati[i, 0];
+                }
+                if (rezultati[i, 1] < minDealokacija)
+                {
+                    minDealokacija = rezultati[i, 1];
+                }
             }
+            Console.WriteLine($"MINIMUMI: {minInicijalizacija}  {minDealokacija}");
+        }
 
-            sw.Stop();
-            Console.WriteLine($"Klase (bez GC):      {sw.ElapsedTicks}");
+        static void Main()
+        {
+            const int brojPonavljanja = 10;
 
-            // ********************************************************
-            // mjerimo samo GC
-            sw.Restart();
+            // **********************************************************************************
+            // 0. Prvo pokrećemo metode da bi ih JIT preveo u strojni kod prije stvarnog mjerenja
+            InicijalizacijaDealokacijaKlasa(1);
+            InicijalizacijaDealokacijaStruktura(1);
+            InicijalizacijaDealokacijaKlasaOdvojeno(1);
+            InicijalizacijaDealokacijaStrukturaOdvojeno(1);
 
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
 
-            sw.Stop();
-            Console.WriteLine($"GC:                  {sw.ElapsedTicks}");
+            // ***********************************************************************
+            // 1. Mjerenje vremena potrebnih za inicijalizaciju i dealokaciju objekata
+            Console.WriteLine($"*** Inicijalizacija i dealokacija klasa ***");
+            IspišiRezultate(InicijalizacijaDealokacijaKlasa(brojPonavljanja));
 
-            // ********************************************************
-            // 5. ponovno instanciramo strukture
-            sw.Restart();
+            Console.WriteLine($"*** Inicijalizacija i dealokacija struktura ***");
+            IspišiRezultate(InicijalizacijaDealokacijaStruktura(brojPonavljanja));
 
-            for (int i = 0; i < brojElemenata; ++i)
-            {
-                MojaStruktura ms = new MojaStruktura(i);
-                int n = ms.A;
-            }
+            // ***************************************************************************************
+            // 2. Odvojeno mjerenje vremena potrebnih za inicijalizaciju, odnosno dealokaciju objekata
+            Console.WriteLine($"*** Inicijalizacija i dealokacija struktura - odvojeno mjerenje ***");
+            IspišiRezultate(InicijalizacijaDealokacijaStrukturaOdvojeno(brojPonavljanja));
 
-            sw.Stop();
-            Console.WriteLine($"Strukuture (bez GC): {sw.ElapsedTicks}");
-
-            // ********************************************************
-            // mjerimo samo GC
-            sw.Restart();
-
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-
-            sw.Stop();
-            Console.WriteLine($"GC:                 {sw.ElapsedTicks}");
+            Console.WriteLine($"*** Inicijalizacija i dealokacija klasa - odvojeno mjerenje ***");
+            IspišiRezultate(InicijalizacijaDealokacijaKlasaOdvojeno(brojPonavljanja));
 
             Console.WriteLine("GOTOVO!!!");
-            Console.ReadKey();
         }
     }
 }

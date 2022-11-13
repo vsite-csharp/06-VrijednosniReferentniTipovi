@@ -1,9 +1,26 @@
 VrijednosniReferentiTip
 =======================
 
+DeklaracijaInicijalizacija
+--------------------------
+Usporedba deklaracije i inicijalizacije objekata vrijednosnog, odnosno 
+referentnog tipa.
+
+
+Nasljeđivanje
+-------------
+Usporedba nasljeđivanja kod struktura i klasa.
+
+
 Pridruživanje
 -------------
 Usporedba pridruživanja objekata vrijednosnog i referentnog tipa.
+
+
+UtjecajGCa
+----------
+Prikaz kako inicijalizacija i dealokacija objekata vrijednosnog ili 
+referentnog tipa utječe na skupljača smeća (Garbage Collector).
 
 
 Zapakiravanje
