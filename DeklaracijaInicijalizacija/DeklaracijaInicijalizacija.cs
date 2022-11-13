@@ -24,24 +24,24 @@
     {
         public static void DeklaracijaInicijalizacijaVrijednosnogTipa(int x)
         {
-            // TODO 000: Deklarirati (ali ne inicijalizirati) objekt 'vt' tipa 'VrijednosniTip'.
+            // TODO:000 Deklarirati (ali ne inicijalizirati) objekt "vt" tipa "VrijednosniTip".
 
-            // TODO 001: Dodati naredbu za ispis na konzolu vrijednosti člana 'X'. Pogledati što prevoditelj prijavljuje.
-            // TODO 002: Inicijalizirati objekt tako da ne prijavljuje pogrešku. Konstruktoru proslijediti argument 'x' metode 'DeklaracijaInicijalizacijaVrijednosnogTipa'.
+            // TODO:001 Dodati naredbu za ispis na konzolu vrijednosti člana "X". Pogledati što prevoditelj prijavljuje.
+            // TODO:002 Inicijalizirati objekt tako da ne prijavljuje pogrešku. Konstruktoru proslijediti argument "x" metode "DeklaracijaInicijalizacijaVrijednosnogTipa".
 
-            // TODO 003: Pokrenuti program i provjeriti ispis.
+            // TODO:003 Pokrenuti program i provjeriti ispis.
         }
 
         public static void DeklaracijaInicijalizacijaReferentnogTipa(int x)
         {
-            // TODO 004: Deklarirati (ali ne inicijalizirati) objekt 'rt' tipa 'ReferentniTip'.
+            // TODO:004 Deklarirati (ali ne inicijalizirati) objekt "rt" tipa "ReferentniTip".
 
-            // TODO 005: Dodati naredbu za ispis na konzolu vrijednosti člana 'X'. Pogledati što prevoditelj prijavljuje.
-            // TODO 006: Inicijalizirati objekt null referencom. Pogledati što prevoditelj prijavljuje i pokrenuti program.
-            // TODO 007: Inicijalizirati objekt pozivom konstruktora kojem se proslijedi argument 'x' metode DeklaracijaInicijalizacijaReferentnogTipa.
+            // TODO:005 Dodati naredbu za ispis na konzolu vrijednosti člana "X". Pogledati što prevoditelj prijavljuje.
+            // TODO:006 Inicijalizirati objekt null referencom. Pogledati što prevoditelj prijavljuje i pokrenuti program.
+            // TODO:007 Inicijalizirati objekt pozivom konstruktora kojem se proslijedi argument "x" metode "DeklaracijaInicijalizacijaReferentnogTipa".
 
-            // TODO 008: Pokrenuti program i provjeriti ispis.
-            // TODO 009: Pokrenuti testove i provjeriti prolaze li testovi u grupi 'TestDeklaracijeInicijalizacije'.
+            // TODO:008 Pokrenuti program i provjeriti ispis.
+            // TODO:009 Pokrenuti testove i provjeriti prolaze li testovi u grupi "TestDeklaracijeInicijalizacije".
         }
 
         static void Main(string[] args)

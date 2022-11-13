@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DeklaracijaInicijalizacija\DeklaracijaInicijalizacija.csproj" />
     <ProjectReference Include="..\GeneričkaLista\GeneričkaLista.csproj" />
+    <ProjectReference Include="..\Nasljeđivanje\Nasljeđivanje.csproj" />
     <ProjectReference Include="..\Otpakiravanje\Otpakiravanje.csproj" />
     <ProjectReference Include="..\Pridruživanje\Pridruživanje.csproj" />
     <ProjectReference Include="..\UtjecajGCa\UtjecajGCa.csproj" />

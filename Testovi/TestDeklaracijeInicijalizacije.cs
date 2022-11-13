@@ -10,7 +10,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip.Testovi
     public class TestDeklaracijeInicijalizacije : ConsoleTest
     {
         [TestMethod]
-        public void TestVrijednosnogTipa()
+        public void VrijednosniTip()
         {
             DeklaracijaInicijalizacija.DeklaracijaInicijalizacijaVrijednosnogTipa(7);
             Assert.AreEqual(1, cw.Count);
@@ -18,7 +18,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip.Testovi
         }
 
         [TestMethod]
-        public void TestReferentnogTipa()
+        public void ReferentniTip()
         {
             DeklaracijaInicijalizacija.DeklaracijaInicijalizacijaReferentnogTipa(12);
             Assert.AreEqual(1, cw.Count);
