@@ -9,8 +9,15 @@
         public readonly int X;
     }
 
-    // TODO:010 Dodati definiciju strukture IzvedenaStruktura koja nasljeđuje strukturu BaznaStruktura. Provjeriti što prevoditelj javlja.
-
+    // 010 Dodati definiciju strukture IzvedenaStruktura koja nasljeđuje strukturu BaznaStruktura. Provjeriti što prevoditelj javlja.
+    //struct IzvedenaStruktura : /*BaznaStruktura*/ IDisposable // strukture ne mogu naslijeđivati ali mogu
+    //                                                         //  implementirati interface!
+    //{
+    //    public void Dispose()
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
 
     class BaznaKlasa
     {
@@ -21,18 +28,25 @@
         public readonly int X;
     }
 
-    // TODO:011 Dodati definiciju klase IzvedenaKlasa koja nasljeđuje klasu BaznaKlasa. Provjeriti što prevoditelj javlja.
-    // TODO:012 Ispraviti pogrešku (dodati konstruktor u IzvedenaKlasa) tako da prevoditelj ne prijavljuje pogrešku.
+    // 011 Dodati definiciju klase IzvedenaKlasa koja nasljeđuje klasu BaznaKlasa. Provjeriti što prevoditelj javlja.
+    class IzvedenaKlasa : BaznaKlasa
+    {
+        public IzvedenaKlasa(int x) : base(x)
+        {
+
+        }
+    }
+    // 012 Ispraviti pogrešku (dodati konstruktor u IzvedenaKlasa) tako da prevoditelj ne prijavljuje pogrešku.
 
     internal class Nasljeđivanje
     {
         public static void NasljeđivanjeKlase(int x)
         {
-            // TODO:013 Inicijalizirati objekt tipa "IzvedenaKlasa" i proslijediti konstruktoru x.
-
-            // TODO:014 Dodati naredbu za ispis vrijednosti člana "X" na konzolu.
-
-            // TODO:015 Pokrenuti testove i provjeriti prolaze li testovi u grupi "TestNasljeđivanja".
+            // 013 Inicijalizirati objekt tipa "IzvedenaKlasa" i proslijediti konstruktoru x.
+            IzvedenaKlasa ik = new IzvedenaKlasa(x);
+            // 014 Dodati naredbu za ispis vrijednosti člana "X" na konzolu.
+            Console.WriteLine(ik.X);
+            // 015 Pokrenuti testove i provjeriti prolaze li testovi u grupi "TestNasljeđivanja".
         }
 
         static void Main(string[] args)
