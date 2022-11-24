@@ -25,6 +25,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             // TODO:020 Deklarirati novi objekt "vt2" tipa VrijednTip i pridružiti mu vrijednost objekta "vt1"
 
 
+
             // TODO:021 Dodati naredbe koje će ispisati vrijednosti članova vt1.X, odnosno vt2.X
 
 
