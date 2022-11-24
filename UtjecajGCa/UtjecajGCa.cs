@@ -61,9 +61,35 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
         public static long[] InicijalizacijaDealokacijaKlasa(int brojPonavljanja)
         {
-            // TODO:030 Ponoviti kod prethodne metode ali za inicijalizaciju objekata tipa MojaKlasa
+            // 030 Ponoviti kod prethodne metode ali za inicijalizaciju objekata tipa MojaKlasa
+            var tikovi = new long[brojPonavljanja];
+            Stopwatch sw = new Stopwatch();
 
-            throw new NotImplementedException();
+            for (int n = 0; n < brojPonavljanja; ++n)
+            {
+                // pokrećemo štopericu
+                sw.Restart();
+
+                // instanciramo mnoštvo objekata vrijednosnog tipa (strukture)
+                for (int i = 0; i < brojElemenata; ++i)
+                {
+                    var ms = new MojaKlasa(i);
+                }
+
+                // ručno pokrećemo GC
+                GC.Collect();
+
+                // GC oslobađa memoriju u zasebnim nitima (threadovima) pa trebamo čekati da svi završe
+                GC.WaitForPendingFinalizers();
+
+                // zaustavlajmo štopericu
+                sw.Stop();
+
+                // pohranimo izmjereno vrijeme
+                tikovi[n] = sw.ElapsedTicks;
+            }
+            // vraćamo izmjerena vremena
+            return tikovi;
 
         }
 
@@ -110,10 +136,43 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
         public static long[,] InicijalizacijaDealokacijaKlasaOdvojeno(int brojPonavljanja)
         {
-            // TODO:031 Ponoviti kod gornje metode ali za inicijalizaciju objekata tipa MojaKlasa
+            var tikovi = new long[brojPonavljanja, 2];
+            Stopwatch sw = new Stopwatch();
 
-            // TODO:032 Provjeriti prolaze li svi testovi iz grupe TestUtjecajaGCa
-            throw new NotImplementedException();
+            for (int n = 0; n < brojPonavljanja; ++n)
+            {
+                // pokrećemo štopericu
+                sw.Restart();
+
+                // instanciramo mnoštvo objekata vrijednosnog tipa (strukture)
+                for (int i = 0; i < brojElemenata; ++i)
+                {
+                    var ms = new MojaKlasa(i);
+                }
+
+                // zaustavlajmo štopericu
+                sw.Stop();
+
+                // dodajemo vrijeme izmjereno za inicijalizaciju
+                tikovi[n, 0] = sw.ElapsedTicks;
+
+                // pokrećemo štopericu za mjerenje GC-a
+                sw.Restart();
+
+                // ručno pokrećemo GC
+                GC.Collect();
+
+                // GC oslobađa memoriju u zasebnim nitima (threadovima) pa trebamo čekati da svi završe
+                GC.WaitForPendingFinalizers();
+
+                // zaustavlajmo štopericu
+                sw.Stop();
+
+                // pohranimo vrijeme izmjereno za dealokaciju
+                tikovi[n, 1] = sw.ElapsedTicks;
+            }
+            // vraćamo izmjerena vremena
+            return tikovi;
         }
 
         static void IspišiRezultate(long[] rezultati)
@@ -149,7 +208,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
         {
             const int brojPonavljanja = 10;
 
-            // **********************************************************************************
+            // ****************************
             // 0. Prvo pokrećemo metode da bi ih JIT preveo u strojni kod prije stvarnog mjerenja
             InicijalizacijaDealokacijaKlasa(1);
             InicijalizacijaDealokacijaStruktura(1);
@@ -157,20 +216,20 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             InicijalizacijaDealokacijaStrukturaOdvojeno(1);
 
 
-            // ***********************************************************************
+            // *************************
             // 1. Mjerenje vremena potrebnih za inicijalizaciju i dealokaciju objekata
-            Console.WriteLine($"*** Inicijalizacija i dealokacija klasa ***");
+            Console.WriteLine($"* Inicijalizacija i dealokacija klasa *");
             IspišiRezultate(InicijalizacijaDealokacijaKlasa(brojPonavljanja));
 
-            Console.WriteLine($"*** Inicijalizacija i dealokacija struktura ***");
+            Console.WriteLine($"* Inicijalizacija i dealokacija struktura *");
             IspišiRezultate(InicijalizacijaDealokacijaStruktura(brojPonavljanja));
 
-            // ***************************************************************************************
+            // *****************************
             // 2. Odvojeno mjerenje vremena potrebnih za inicijalizaciju, odnosno dealokaciju objekata
-            Console.WriteLine($"*** Inicijalizacija i dealokacija struktura - odvojeno mjerenje ***");
+            Console.WriteLine($"* Inicijalizacija i dealokacija struktura - odvojeno mjerenje *");
             IspišiRezultate(InicijalizacijaDealokacijaStrukturaOdvojeno(brojPonavljanja));
 
-            Console.WriteLine($"*** Inicijalizacija i dealokacija klasa - odvojeno mjerenje ***");
+            Console.WriteLine($"* Inicijalizacija i dealokacija klasa - odvojeno mjerenje *");
             IspišiRezultate(InicijalizacijaDealokacijaKlasaOdvojeno(brojPonavljanja));
 
             Console.WriteLine("GOTOVO!!!");
