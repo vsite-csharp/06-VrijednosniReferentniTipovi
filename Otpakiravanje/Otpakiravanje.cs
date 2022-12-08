@@ -12,6 +12,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 Console.WriteLine("Pokušavamo članove u foreach tretirati kao short");
                 foreach (short s in lista)
                 {
+                    Console.WriteLine(s);
                     // TODO:050 Dodati naredbu za ispis člana s. Postaviti prekidnu točku (breakpoint) na početak metode, pokrenuti program i provjeriti izvođenje.
 
                 }
@@ -24,13 +25,16 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
         public static void IspišiCastObjectUShort(ArrayList lista)
         {
+            
             try
             {
                 Console.WriteLine("Pokušavamo članove tipa object pretvoriti u short");
                 foreach (object o in lista)
                 {
+                    
+                    Console.WriteLine((short)o);
                     // TODO:051 Napraviti eksplicitnu pretvorbu člana o u tip short te dodati naredbu za ispis. 
-                    // TODO:052Postaviti prekidnu točku (breakpoint) na početak metode, pokrenuti program i provjeriti izvođenje
+                    // TODO:052 Postaviti prekidnu točku (breakpoint) na početak metode, pokrenuti program i provjeriti izvođenje
 
                 }
             }
@@ -47,6 +51,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 Console.WriteLine("Pokušavamo članove pretvoriti prvo int pa u u short");
                 foreach (object o in lista)
                 {
+                    Console.WriteLine((short)(int)o);
                     // TODO:053 Napratiti eksplicitnu pretvorbu člana o u int, a potom u tip short te dodati naredbu za ispis. Pokrenuti program i provjeriti ispis.
 
                 }

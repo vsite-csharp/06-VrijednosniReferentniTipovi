@@ -15,7 +15,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip.Testovi
             Otpakiravanje.IspišiCastObjectUShort(brojevi);
             Assert.AreEqual(2, cw.Count);
             Assert.AreEqual("Pokušavamo članove tipa object pretvoriti u short", cw.GetString());
-            Assert.AreEqual("Specified cast is not valid.", cw.GetString());
+            Assert.AreEqual("Unable to cast object of type 'System.Int32' to type 'System.Int16'.", cw.GetString());
         }
 
         [TestMethod]
