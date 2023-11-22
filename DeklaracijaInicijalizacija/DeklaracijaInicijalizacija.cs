@@ -60,7 +60,6 @@
                 Console.WriteLine($"Bačena je iznimka tipa '{e.GetType()}': {e.Message}");
             }
             Console.WriteLine("GOTOVO!!!");
-            Console.ReadKey();
         }
     }
 }

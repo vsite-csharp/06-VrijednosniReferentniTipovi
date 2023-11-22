@@ -39,7 +39,6 @@
         {
             NasljeđivanjeKlase(3);
             Console.WriteLine("GOTOVO!!!");
-            Console.ReadKey();
         }
     }
 }

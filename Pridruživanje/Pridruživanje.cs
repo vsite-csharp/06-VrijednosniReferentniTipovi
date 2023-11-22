@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Vsite.CSharp.VrijednosniReferentniTip
+﻿namespace Vsite.CSharp.VrijednosniReferentniTip
 {
     // vrijednosni tip zbog 'struct'
     struct VrijednTip
@@ -94,7 +92,6 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             PridruživanjeNovogObjektaČlanuPreslikaneStukture(1, 5);
 
             Console.WriteLine("GOTOVO!!!");
-            Console.ReadKey(true);
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Vsite.CSharp.VrijednosniReferentniTip
+﻿namespace Vsite.CSharp.VrijednosniReferentniTip
 {
     class GeneričkaLista
     {
@@ -23,7 +20,6 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             Ispis(lista);
 
             Console.WriteLine("GOTOVO!!!");
-            Console.ReadKey();
         }
 
         public static void Ispis(List<VrijednTip> lista)

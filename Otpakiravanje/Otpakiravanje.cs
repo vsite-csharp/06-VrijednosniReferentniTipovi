@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 
 namespace Vsite.CSharp.VrijednosniReferentniTip
 {
@@ -77,7 +76,6 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
             Console.WriteLine();
 
             Console.WriteLine("GOTOVO!!!");
-            Console.ReadKey();
         }
 
     }

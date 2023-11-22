@@ -159,18 +159,18 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
             // ***********************************************************************
             // 1. Mjerenje vremena potrebnih za inicijalizaciju i dealokaciju objekata
-            Console.WriteLine($"*** Inicijalizacija i dealokacija klasa ***");
+            Console.WriteLine("*** Inicijalizacija i dealokacija klasa ***");
             IspišiRezultate(InicijalizacijaDealokacijaKlasa(brojPonavljanja));
 
-            Console.WriteLine($"*** Inicijalizacija i dealokacija struktura ***");
+            Console.WriteLine("*** Inicijalizacija i dealokacija struktura ***");
             IspišiRezultate(InicijalizacijaDealokacijaStruktura(brojPonavljanja));
 
             // ***************************************************************************************
             // 2. Odvojeno mjerenje vremena potrebnih za inicijalizaciju, odnosno dealokaciju objekata
-            Console.WriteLine($"*** Inicijalizacija i dealokacija struktura - odvojeno mjerenje ***");
+            Console.WriteLine("*** Inicijalizacija i dealokacija struktura - odvojeno mjerenje ***");
             IspišiRezultate(InicijalizacijaDealokacijaStrukturaOdvojeno(brojPonavljanja));
 
-            Console.WriteLine($"*** Inicijalizacija i dealokacija klasa - odvojeno mjerenje ***");
+            Console.WriteLine("*** Inicijalizacija i dealokacija klasa - odvojeno mjerenje ***");
             IspišiRezultate(InicijalizacijaDealokacijaKlasaOdvojeno(brojPonavljanja));
 
             Console.WriteLine("GOTOVO!!!");
