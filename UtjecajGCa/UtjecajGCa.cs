@@ -61,9 +61,36 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
         public static long[] InicijalizacijaDealokacijaKlasa(int brojPonavljanja)
         {
-            // TODO:030 Ponoviti kod prethodne metode ali za inicijalizaciju objekata tipa MojaKlasa
+            // Ponoviti kod prethodne metode ali za inicijalizaciju objekata tipa MojaKlasa
 
-            throw new NotImplementedException();
+            var tikovi = new long[brojPonavljanja];
+            Stopwatch sw = new Stopwatch();
+
+            for (int n = 0; n < brojPonavljanja; ++n)
+            {
+                // pokrećemo štopericu
+                sw.Restart();
+
+                // instanciramo mnoštvo objekata referentnog tipa (strukture)
+                for (int i = 0; i < brojElemenata; ++i)
+                {
+                    MojaKlasa ms = new MojaKlasa(i);
+                }
+
+                // ručno pokrećemo GC
+                GC.Collect();
+
+                // GC oslobađa memoriju u zasebnim nitima (threadovima) pa trebamo čekati da svi završe
+                GC.WaitForPendingFinalizers();
+
+                // zaustavlajmo štopericu
+                sw.Stop();
+
+                // pohranimo izmjereno vrijeme
+                tikovi[n] = sw.ElapsedTicks;
+            }
+            // vraćamo izmjerena vremena
+            return tikovi;
 
         }
 
@@ -110,10 +137,37 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
         public static long[,] InicijalizacijaDealokacijaKlasaOdvojeno(int brojPonavljanja)
         {
-            // TODO:031 Ponoviti kod gornje metode ali za inicijalizaciju objekata tipa MojaKlasa
+            // Ponoviti kod gornje metode ali za inicijalizaciju objekata tipa MojaKlasa
 
             // TODO:032 Provjeriti prolaze li svi testovi iz grupe TestUtjecajaGCa
-            throw new NotImplementedException();
+            var tikovi = new long[brojPonavljanja, 2];
+            Stopwatch sw = new Stopwatch();
+
+            for (int n = 0; n < brojPonavljanja; ++n)
+            {
+                // pokrećemo štopericu
+                sw.Restart();
+
+                // instanciramo mnoštvo objekata vrijednosnog tipa (strukture)
+                for (int i = 0; i < brojElemenata; ++i)
+                {
+                    MojaKlasa ms = new MojaKlasa(i);
+                }
+
+                // ručno pokrećemo GC
+                GC.Collect();
+
+                // GC oslobađa memoriju u zasebnim nitima (threadovima) pa trebamo čekati da svi završe
+                GC.WaitForPendingFinalizers();
+
+                // zaustavlajmo štopericu
+                sw.Stop();
+
+                // pohranimo izmjereno vrijeme
+                tikovi[n] = sw.ElapsedTicks;
+            }
+            // vraćamo izmjerena vremena
+            return tikovi;
         }
 
         static void IspišiRezultate(long[] rezultati)
