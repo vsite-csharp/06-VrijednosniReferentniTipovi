@@ -61,9 +61,36 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
         public static long[] InicijalizacijaDealokacijaKlasa(int brojPonavljanja)
         {
-            // TODO:030 Ponoviti kod prethodne metode ali za inicijalizaciju objekata tipa MojaKlasa
+            // DONE:030 Ponoviti kod prethodne metode ali za inicijalizaciju objekata tipa MojaKlasa
+            var tikovi = new long[brojPonavljanja];
+            Stopwatch sw = new Stopwatch();
 
-            throw new NotImplementedException();
+            for (int n = 0; n < brojPonavljanja; ++n)
+            {
+                // pokrećemo štopericu
+                sw.Restart();
+
+                // instanciramo mnoštvo objekata vrijednosnog tipa (strukture)
+                for (int i = 0; i < brojElemenata; ++i)
+                {
+                    MojaKlasa ms = new MojaKlasa(i);
+                }
+
+                // ručno pokrećemo GC
+                GC.Collect();
+
+                // GC oslobađa memoriju u zasebnim nitima (threadovima) pa trebamo čekati da svi završe
+                GC.WaitForPendingFinalizers();
+
+                // zaustavljamo štopericu
+                sw.Stop();
+
+                // pohranimo izmjereno vrijeme
+                tikovi[n] = sw.ElapsedTicks;
+            }
+            // vraćamo izmjerena vremena
+            return tikovi;
+
 
         }
 
@@ -98,7 +125,7 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
                 // GC oslobađa memoriju u zasebnim nitima (threadovima) pa trebamo čekati da svi završe
                 GC.WaitForPendingFinalizers();
 
-                // zaustavlajmo štopericu
+                // zaustavljamo štopericu
                 sw.Stop();
 
                 // pohranimo vrijeme izmjereno za dealokaciju
@@ -110,11 +137,48 @@ namespace Vsite.CSharp.VrijednosniReferentniTip
 
         public static long[,] InicijalizacijaDealokacijaKlasaOdvojeno(int brojPonavljanja)
         {
-            // TODO:031 Ponoviti kod gornje metode ali za inicijalizaciju objekata tipa MojaKlasa
+            // DONE:031 Ponoviti kod gornje metode ali za inicijalizaciju objekata tipa MojaKlasa
 
-            // TODO:032 Provjeriti prolaze li svi testovi iz grupe TestUtjecajaGCa
-            throw new NotImplementedException();
+            // DONE:032 Provjeriti prolaze li svi testovi iz grupe TestUtjecajaGCa
+            var tikovi = new long[brojPonavljanja, 2];
+            Stopwatch sw = new Stopwatch();
+
+            for (int n = 0; n < brojPonavljanja; ++n)
+            {
+                // pokrećemo štopericu
+                sw.Restart();
+
+                // instanciramo mnoštvo objekata vrijednosnog tipa (strukture)
+                for (int i = 0; i < brojElemenata; ++i)
+                {
+                    MojaKlasa ms = new MojaKlasa(i);
+                }
+
+                // zaustavlajmo štopericu
+                sw.Stop();
+
+                // dodajemo vrijeme izmjereno za inicijalizaciju
+                tikovi[n, 0] = sw.ElapsedTicks;
+
+                // pokrećemo štopericu za mjerenje GC-a
+                sw.Restart();
+
+                // ručno pokrećemo GC
+                GC.Collect();
+
+                // GC oslobađa memoriju u zasebnim nitima (threadovima) pa trebamo čekati da svi završe
+                GC.WaitForPendingFinalizers();
+
+                // zaustavljamo štopericu
+                sw.Stop();
+
+                // pohranimo vrijeme izmjereno za dealokaciju
+                tikovi[n, 1] = sw.ElapsedTicks;
+            }
+            // vraćamo izmjerena vremena
+            return tikovi;
         }
+   
 
         static void IspišiRezultate(long[] rezultati)
         {

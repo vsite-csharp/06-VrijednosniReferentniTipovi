@@ -18,15 +18,18 @@
             X = x;
         }
         public readonly int X;
+
     }
 
     internal class DeklaracijaInicijalizacija
     {
         public static void DeklaracijaInicijalizacijaVrijednosnogTipa(int x)
         {
-            // TODO:000 Deklarirati (ali ne inicijalizirati) objekt "vt" tipa "VrijednosniTip".
+            // DONE:000 Deklarirati (ali ne inicijalizirati) objekt "vt" tipa "VrijednosniTip".
+            //VrijednosniTip vt;
 
-            // TODO:001 Dodati naredbu za ispis na konzolu vrijednosti člana "X". Pogledati što prevoditelj prijavljuje.
+            // DONE:001 Dodati naredbu za ispis na konzolu vrijednosti člana "X". Pogledati što prevoditelj prijavljuje.
+            //Console.WriteLine(vt.X);
             // TODO:002 Inicijalizirati objekt tako da ne prijavljuje pogrešku. Konstruktoru proslijediti argument "x" metode "DeklaracijaInicijalizacijaVrijednosnogTipa".
 
             // TODO:003 Pokrenuti program i provjeriti ispis.
