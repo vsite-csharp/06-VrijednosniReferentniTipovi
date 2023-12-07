@@ -24,7 +24,7 @@
     {
         public static void DeklaracijaInicijalizacijaVrijednosnogTipa(int x)
         {
-            // :000 Deklarirati (ali ne inicijalizirati) objekt "vt" tipa "VrijednosniTip".
+            // : Deklarirati (ali ne inicijalizirati) objekt "vt" tipa "VrijednosniTip".
             //VrijednosniTip vt;
             VrijednosniTip vt = new VrijednosniTip(x);
             // :001 Dodati naredbu za ispis na konzolu vrijednosti člana "X". Pogledati što prevoditelj prijavljuje.
@@ -36,10 +36,12 @@
 
         public static void DeklaracijaInicijalizacijaReferentnogTipa(int x)
         {
-            // TODO:004 Deklarirati (ali ne inicijalizirati) objekt "rt" tipa "ReferentniTip".
-
-            // TODO:005 Dodati naredbu za ispis na konzolu vrijednosti člana "X". Pogledati što prevoditelj prijavljuje.
-            // TODO:006 Inicijalizirati objekt null referencom. Pogledati što prevoditelj prijavljuje i pokrenuti program.
+            // :004 Deklarirati (ali ne inicijalizirati) objekt "rt" tipa "ReferentniTip".
+            //ReferentniTip rt;
+            // :005 Dodati naredbu za ispis na konzolu vrijednosti člana "X". Pogledati što prevoditelj prijavljuje.
+            Console.WriteLine(x);
+            // :006 Inicijalizirati objekt null referencom. Pogledati što prevoditelj prijavljuje i pokrenuti program.
+            ReferentniTip rt = null;    
             // TODO:007 Inicijalizirati objekt pozivom konstruktora kojem se proslijedi argument "x" metode "DeklaracijaInicijalizacijaReferentnogTipa".
 
             // TODO:008 Pokrenuti program i provjeriti ispis.
