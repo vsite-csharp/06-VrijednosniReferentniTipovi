@@ -41,11 +41,11 @@
             // :005 Dodati naredbu za ispis na konzolu vrijednosti člana "X". Pogledati što prevoditelj prijavljuje.
             Console.WriteLine(x);
             // :006 Inicijalizirati objekt null referencom. Pogledati što prevoditelj prijavljuje i pokrenuti program.
-            ReferentniTip rt = null;    
-            // TODO:007 Inicijalizirati objekt pozivom konstruktora kojem se proslijedi argument "x" metode "DeklaracijaInicijalizacijaReferentnogTipa".
-
-            // TODO:008 Pokrenuti program i provjeriti ispis.
-            // TODO:009 Pokrenuti testove i provjeriti prolaze li testovi u grupi "TestDeklaracijeInicijalizacije".
+            //ReferentniTip rt = null;
+            // :007 Inicijalizirati objekt pozivom konstruktora kojem se proslijedi argument "x" metode "DeklaracijaInicijalizacijaReferentnogTipa".
+            ReferentniTip rt = new ReferentniTip(x);
+            // :008 Pokrenuti program i provjeriti ispis.
+            // :009 Pokrenuti testove i provjeriti prolaze li testovi u grupi "TestDeklaracijeInicijalizacije".
         }
 
         static void Main(string[] args)
